@@ -1,0 +1,63 @@
+{
+  "name": "@star-this/type-horde",
+  "version": "0.1.0",
+  "description": "Type-level Utility Functions that add to what TypeScript offers out of the box",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/star-this/type-horde.git"
+  },
+  "keywords": [
+    "typescript",
+    "types",
+    "utility",
+    "functions",
+    "helpers",
+    "ts",
+    "test",
+    "testing",
+    "union",
+    "unions",
+    "tuple",
+    "tuples",
+    "array",
+    "arrays",
+    "object",
+    "objects",
+    "nullish",
+    "pretty",
+    "readable",
+    "readonly",
+    "utilities",
+    "type-level",
+    "generics",
+    "mapped-types",
+    "collections",
+    "collection",
+    "transform",
+    "transforms",
+    "transformation",
+    "infer",
+    "inference",
+    "type",
+    "primitives",
+    "primitie",
+    "type-level-testing",
+    "type-level",
+    "higher-order",
+    "recursion",
+    "loop",
+    "fold",
+    "unfold",
+    "etc"
+  ],
+  "author": "Xs-and-10s",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/star-this/type-horde/issues"
+  },
+  "homepage": "https://github.com/star-this/type-horde#readme"
+}
