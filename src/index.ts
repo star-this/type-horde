@@ -1,7 +1,5 @@
 // built-in-expansions
-export { PrettyReadable } from "./built-in-expansions";
-export { NonNullish } from "./built-in-expansions";
-export { Nullish } from "./built-in-expansions";
+export { PrettyReadable, NonNullish, Nullish } from "./built-in-expansions.js";
 // sanity
 export { Equal, Equals } from "./sanity/equal.js";
 export {
@@ -9,6 +7,6 @@ export {
   ExpectTo,
   ExpectToBeFalse,
   ExpectToBeTrue,
-  f,
-  t,
-} from "./sanity/expect";
+} from "./sanity/expect.js";
+export { f } from "./sanity/false.js";
+export { t } from "./sanity/true.js";
