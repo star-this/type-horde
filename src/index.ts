@@ -4,3 +4,11 @@ export { NonNullish } from "./built-in-expansions";
 export { Nullish } from "./built-in-expansions";
 // sanity
 export { Equal, Equals } from "./sanity/equal.js";
+export {
+  Expect,
+  ExpectTo,
+  ExpectToBeFalse,
+  ExpectToBeTrue,
+  f,
+  t,
+} from "./sanity/expect";
