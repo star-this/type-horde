@@ -4,12 +4,11 @@ import { Test } from "./test";
 import { f } from "./false";
 
 suite("f", () => {
-  type SuitePasses = Suite<"f", [Test<"false?", [f]>]>;
+  type SuitePasses = Suite<"f", [Test<"false?", [false]>]>;
   test("f === false", () => {
-    const truth: f = false;
-    const suite: SuitePasses = ["f", [["false?", [truth]]]];
+    const suite: SuitePasses = ["f", [["false?", [f]]]];
 
-    expect(truth).toBe(false);
+    expect(f).toBe(false);
     expect(suite).toBeTruthy();
   });
 });
