@@ -5,9 +5,9 @@
  * * @example Test<"Example", [
  * *   ExpectTo<Equal<true, t>>,
  * *   ExpectTo<Equal<false, f>>
- * *] = ["Example", [t, f]]
+ * *] = ["Example", [t, f]]>
  */
-export type Test<
-  TestName extends string,
-  Expectations extends boolean[],
-> = readonly [name: TestName, tests: Expectations];
+export type Test<TestName, Expectations> = readonly [
+  name: TestName extends string ? TestName : never,
+  tests: Expectations extends boolean[] ? Expectations : never,
+];
