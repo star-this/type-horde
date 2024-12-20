@@ -59,5 +59,8 @@
   "bugs": {
     "url": "https://github.com/star-this/type-horde/issues"
   },
-  "homepage": "https://github.com/star-this/type-horde#readme"
+  "homepage": "https://github.com/star-this/type-horde#readme",
+  "devDependencies": {
+    "vitest": "^2.1.8"
+  }
 }
