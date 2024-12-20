@@ -1,16 +1,4 @@
 /**
- * ? Type Alias for true literal
- * ! Semantically useful for test Suites and Tests
- */
-export type t = true;
-
-/**
- * ? Type Alias for false literal
- * ! Semantically useful for test Suites and Tests
- */
-export type f = false;
-
-/**
  * ? Type Alias for Expect
  * ! Semantically useful when pairing with Equal and true:
  * * @example ExpectTo<Equal<true, t>>
