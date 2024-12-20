@@ -10,3 +10,6 @@ export {
 } from "./sanity/expect.js";
 export { f } from "./sanity/false.js";
 export { t } from "./sanity/true.js";
+// logic
+export { False } from "./logic/false.js";
+export { True } from "./logic/true.js";
