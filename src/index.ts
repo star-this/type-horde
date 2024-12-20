@@ -6,7 +6,12 @@ export {
   Expect,
   ExpectTo,
   ExpectToBeFalse,
+  ExpectToBeFalsy,
+  ExpectToBeNull,
+  ExpectToBeNullish,
   ExpectToBeTrue,
+  ExpectToBeTruthy,
+  ExpectToBeUndefined,
 } from "./sanity/expect.js";
 export { Test } from "./sanity/test.js";
 export { Suite } from "./sanity/suite.js";
