@@ -4,7 +4,7 @@ import { Test } from "./test";
 import { f } from "./false";
 
 suite("f", () => {
-  type SuitePasses = Suite<"f", [Test<"false?", [t]>]>;
+  type SuitePasses = Suite<"f", [Test<"false?", [f]>]>;
   test("f === false", () => {
     const truth: f = false;
     const suite: SuitePasses = ["f", [["false?", [truth]]]];
