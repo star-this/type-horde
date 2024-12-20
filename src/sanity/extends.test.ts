@@ -4,7 +4,6 @@ import { Test } from "./test";
 import { t } from "./true";
 import { f } from "./false";
 import { Extend, Extends } from "./extends";
-import exp from "constants";
 
 suite("Extend", () => {
   type ExtendPasses = Suite<
