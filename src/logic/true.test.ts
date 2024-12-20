@@ -132,5 +132,6 @@ suite("Truth Table with True<T>, False<F>, & Not<P>", () => {
         ["False<Not<Not<False>>> -> True", [t]],
       ],
     ];
+    expect(table).toBeTruthy();
   });
 });
