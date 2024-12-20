@@ -3,7 +3,17 @@ import { Suite } from "./suite";
 import { Test } from "./test";
 import { t } from "./true";
 import { f } from "./false";
-import { Expect, ExpectTo, ExpectToBeFalse, ExpectToBeTrue } from "./expect";
+import {
+  Expect,
+  ExpectTo,
+  ExpectToBeFalse,
+  ExpectToBeFalsy,
+  ExpectToBeNull,
+  ExpectToBeNullish,
+  ExpectToBeTrue,
+  ExpectToBeTruthy,
+  ExpectToBeUndefined,
+} from "./expect";
 
 suite("Expect", () => {
   type ExpectPasses = Suite<
@@ -85,21 +95,38 @@ suite("ExpectToBeTrue", () => {
   });
 });
 
-// TODO:
 suite("ExpectToBeTruthy", () => {
-  type ExpectPasses = Suite<
-    "Expect",
+  type ExpectToBeTruthyPasses = Suite<
+    "ExpectToBeTruthy",
     [
-      Test<"Yes: Expect<true>", [Expect<true>]>,
-      Test<"No: Expect<false>", [Expect<false>]>,
+      Test<"Yes: ExpectToBeTruthy<true>", [ExpectToBeTruthy<true>]>,
+      Test<"Yes: ExpectToBeTruthy<'true'>", [ExpectToBeTruthy<"true">]>,
+      Test<"Yes: ExpectToBeTruthy<1>", [ExpectToBeTruthy<1>]>,
+      Test<"Yes: ExpectToBeTruthy<{}>", [ExpectToBeTruthy<{}>]>,
+      Test<"Yes: ExpectToBeTruthy<[]>", [ExpectToBeTruthy<[]>]>,
+      Test<"No: ExpectToBeTruthy<false>", [ExpectToBeTruthy<false>]>,
+      Test<"No: ExpectToBeTruthy<''>", [ExpectToBeTruthy<"">]>,
+      Test<"No: ExpectToBeTruthy<0>", [ExpectToBeTruthy<0>]>,
+      Test<"No: ExpectToBeTruthy<-0>", [ExpectToBeTruthy<-0>]>,
+      Test<"No: ExpectToBeTruthy<null>", [ExpectToBeTruthy<null>]>,
+      Test<"No: ExpectToBeTruthy<undefined>", [ExpectToBeTruthy<undefined>]>,
     ]
   >;
-  test("true then false", () => {
-    const _expect_: ExpectPasses = [
-      "Expect",
+  test("5 truthy values then 6 falsy", () => {
+    const _expect_: ExpectToBeTruthyPasses = [
+      "ExpectToBeTruthy",
       [
-        ["Yes: Expect<true>", [t]],
-        ["No: Expect<false>", [f]],
+        ["Yes: ExpectToBeTruthy<true>", [t]],
+        ["Yes: ExpectToBeTruthy<'true'>", [t]],
+        ["Yes: ExpectToBeTruthy<1>", [t]],
+        ["Yes: ExpectToBeTruthy<{}>", [t]],
+        ["Yes: ExpectToBeTruthy<[]>", [t]],
+        ["No: ExpectToBeTruthy<false>", [f]],
+        ["No: ExpectToBeTruthy<''>", [f]],
+        ["No: ExpectToBeTruthy<0>", [f]],
+        ["No: ExpectToBeTruthy<-0>", [f]],
+        ["No: ExpectToBeTruthy<null>", [f]],
+        ["No: ExpectToBeTruthy<undefined>", [f]],
       ],
     ];
     expect(_expect_).toBeTruthy();
@@ -108,28 +135,157 @@ suite("ExpectToBeTruthy", () => {
 
 // TODO: implement
 suite("ExpectToBeFalsy", () => {
-  test("true", () => {
-    expect(true).toBe(true);
+  type ExpectToBeFalsyPasses = Suite<
+    "ExpectToBeFalsy",
+    [
+      Test<"No: ExpectToBeFalsy<true>", [ExpectToBeFalsy<true>]>,
+      Test<"No: ExpectToBeFalsy<'true'>", [ExpectToBeFalsy<"true">]>,
+      Test<"No: ExpectToBeFalsy<1>", [ExpectToBeFalsy<1>]>,
+      Test<"No: ExpectToBeFalsy<{}>", [ExpectToBeFalsy<{}>]>,
+      Test<"No: ExpectToBeFalsy<[]>", [ExpectToBeFalsy<[]>]>,
+      Test<"Yes: ExpectToBeFalsy<false>", [ExpectToBeFalsy<false>]>,
+      Test<"Yes: ExpectToBeFalsy<''>", [ExpectToBeFalsy<"">]>,
+      Test<"Yes: ExpectToBeFalsy<0>", [ExpectToBeFalsy<0>]>,
+      Test<"Yes: ExpectToBeFalsy<-0>", [ExpectToBeFalsy<-0>]>,
+      Test<"Yes: ExpectToBeFalsy<null>", [ExpectToBeFalsy<null>]>,
+      Test<"Yes: ExpectToBeFalsy<undefined>", [ExpectToBeFalsy<undefined>]>,
+    ]
+  >;
+  test("5 truthy values then 6 falsy", () => {
+    const _expect_: ExpectToBeFalsyPasses = [
+      "ExpectToBeFalsy",
+      [
+        ["No: ExpectToBeFalsy<true>", [f]],
+        ["No: ExpectToBeFalsy<'true'>", [f]],
+        ["No: ExpectToBeFalsy<1>", [f]],
+        ["No: ExpectToBeFalsy<{}>", [f]],
+        ["No: ExpectToBeFalsy<[]>", [f]],
+        ["Yes: ExpectToBeFalsy<false>", [t]],
+        ["Yes: ExpectToBeFalsy<''>", [t]],
+        ["Yes: ExpectToBeFalsy<0>", [t]],
+        ["Yes: ExpectToBeFalsy<-0>", [t]],
+        ["Yes: ExpectToBeFalsy<null>", [t]],
+        ["Yes: ExpectToBeFalsy<undefined>", [t]],
+      ],
+    ];
+    expect(_expect_).toBeTruthy();
   });
 });
 
-// TODO: implement
 suite("ExpectToBeNullish", () => {
-  test("true", () => {
-    expect(true).toBe(true);
+  type ExpectToBeNullishPasses = Suite<
+    "ExpectToBeNullish",
+    [
+      Test<"No: ExpectToBeNullish<true>", [ExpectToBeNullish<true>]>,
+      Test<"No: ExpectToBeNullish<'true'>", [ExpectToBeNullish<"true">]>,
+      Test<"No: ExpectToBeNullish<1>", [ExpectToBeNullish<1>]>,
+      Test<"No: ExpectToBeNullish<{}>", [ExpectToBeNullish<{}>]>,
+      Test<"No: ExpectToBeNullish<[]>", [ExpectToBeNullish<[]>]>,
+      Test<"No: ExpectToBeNullish<false>", [ExpectToBeNullish<false>]>,
+      Test<"No: ExpectToBeNullish<''>", [ExpectToBeNullish<"">]>,
+      Test<"No: ExpectToBeNullish<0>", [ExpectToBeNullish<0>]>,
+      Test<"No: ExpectToBeNullish<-0>", [ExpectToBeNullish<-0>]>,
+      Test<"Yes: ExpectToBeNullish<null>", [ExpectToBeNullish<null>]>,
+      Test<"Yes: ExpectToBeNullish<undefined>", [ExpectToBeNullish<undefined>]>,
+    ]
+  >;
+  test("9 non-nullish values then 2 nullish", () => {
+    const _expect_: ExpectToBeNullishPasses = [
+      "ExpectToBeNullish",
+      [
+        ["No: ExpectToBeNullish<true>", [f]],
+        ["No: ExpectToBeNullish<'true'>", [f]],
+        ["No: ExpectToBeNullish<1>", [f]],
+        ["No: ExpectToBeNullish<{}>", [f]],
+        ["No: ExpectToBeNullish<[]>", [f]],
+        ["No: ExpectToBeNullish<false>", [f]],
+        ["No: ExpectToBeNullish<''>", [f]],
+        ["No: ExpectToBeNullish<0>", [f]],
+        ["No: ExpectToBeNullish<-0>", [f]],
+        ["Yes: ExpectToBeNullish<null>", [t]],
+        ["Yes: ExpectToBeNullish<undefined>", [t]],
+      ],
+    ];
+    expect(_expect_).toBeTruthy();
   });
 });
 
-// TODO: implement
 suite("ExpectToBeUndefined", () => {
-  test("true", () => {
-    expect(true).toBe(true);
+  type ExpectToBeUndefinedPasses = Suite<
+    "ExpectToBeUndefined",
+    [
+      Test<"No: ExpectToBeUndefined<true>", [ExpectToBeUndefined<true>]>,
+      Test<"No: ExpectToBeUndefined<'true'>", [ExpectToBeUndefined<"true">]>,
+      Test<"No: ExpectToBeUndefined<1>", [ExpectToBeUndefined<1>]>,
+      Test<"No: ExpectToBeUndefined<{}>", [ExpectToBeUndefined<{}>]>,
+      Test<"No: ExpectToBeUndefined<[]>", [ExpectToBeUndefined<[]>]>,
+      Test<"No: ExpectToBeUndefined<false>", [ExpectToBeUndefined<false>]>,
+      Test<"No: ExpectToBeUndefined<''>", [ExpectToBeUndefined<"">]>,
+      Test<"No: ExpectToBeUndefined<0>", [ExpectToBeUndefined<0>]>,
+      Test<"No: ExpectToBeUndefined<-0>", [ExpectToBeUndefined<-0>]>,
+      Test<"No: ExpectToBeUndefined<null>", [ExpectToBeUndefined<null>]>,
+      Test<
+        "Yes: ExpectToBeUndefined<undefined>",
+        [ExpectToBeUndefined<undefined>]
+      >,
+    ]
+  >;
+  test("10 defined values then 1 undefined", () => {
+    const _expect_: ExpectToBeUndefinedPasses = [
+      "ExpectToBeUndefined",
+      [
+        ["No: ExpectToBeUndefined<true>", [f]],
+        ["No: ExpectToBeUndefined<'true'>", [f]],
+        ["No: ExpectToBeUndefined<1>", [f]],
+        ["No: ExpectToBeUndefined<{}>", [f]],
+        ["No: ExpectToBeUndefined<[]>", [f]],
+        ["No: ExpectToBeUndefined<false>", [f]],
+        ["No: ExpectToBeUndefined<''>", [f]],
+        ["No: ExpectToBeUndefined<0>", [f]],
+        ["No: ExpectToBeUndefined<-0>", [f]],
+        ["No: ExpectToBeUndefined<null>", [f]],
+        ["Yes: ExpectToBeUndefined<undefined>", [t]],
+      ],
+    ];
+    expect(_expect_).toBeTruthy();
   });
 });
 
 // TODO: implement
 suite("ExpectToBeNull", () => {
-  test("true", () => {
-    expect(true).toBe(true);
+  type ExpectToBeNullPasses = Suite<
+    "ExpectToBeNull",
+    [
+      Test<"No: ExpectToBeNull<true>", [ExpectToBeNull<true>]>,
+      Test<"No: ExpectToBeNull<'true'>", [ExpectToBeNull<"true">]>,
+      Test<"No: ExpectToBeNull<1>", [ExpectToBeNull<1>]>,
+      Test<"No: ExpectToBeNull<{}>", [ExpectToBeNull<{}>]>,
+      Test<"No: ExpectToBeNull<[]>", [ExpectToBeNull<[]>]>,
+      Test<"No: ExpectToBeNull<false>", [ExpectToBeNull<false>]>,
+      Test<"No: ExpectToBeNull<''>", [ExpectToBeNull<"">]>,
+      Test<"No: ExpectToBeNull<0>", [ExpectToBeNull<0>]>,
+      Test<"No: ExpectToBeNull<-0>", [ExpectToBeNull<-0>]>,
+      Test<"Yes: ExpectToBeNull<null>", [ExpectToBeNull<null>]>,
+      Test<"No: ExpectToBeNull<undefined>", [ExpectToBeNull<undefined>]>,
+    ]
+  >;
+  test("10 defined values then 1 undefined", () => {
+    const _expect_: ExpectToBeNullPasses = [
+      "ExpectToBeNull",
+      [
+        ["No: ExpectToBeNull<true>", [f]],
+        ["No: ExpectToBeNull<'true'>", [f]],
+        ["No: ExpectToBeNull<1>", [f]],
+        ["No: ExpectToBeNull<{}>", [f]],
+        ["No: ExpectToBeNull<[]>", [f]],
+        ["No: ExpectToBeNull<false>", [f]],
+        ["No: ExpectToBeNull<''>", [f]],
+        ["No: ExpectToBeNull<0>", [f]],
+        ["No: ExpectToBeNull<-0>", [f]],
+        ["Yes: ExpectToBeNull<null>", [t]],
+        ["No: ExpectToBeNull<undefined>", [f]],
+      ],
+    ];
+    expect(_expect_).toBeTruthy();
   });
 });
