@@ -1,3 +1,4 @@
+import { Test } from "./test";
 /**
  * ? Utility Type to run a Suite of Test types
  * ! must include Expectation results in tuple:
@@ -11,5 +12,5 @@
  */
 export type Suite<SuiteName, Tests> = readonly [
   name: SuiteName extends string ? SuiteName : never,
-  suite: Tests extends [name: string, tests: boolean[]] ? Tests : never,
+  suite: Tests extends Test<string, [expectation: boolean]>[] ? Tests : never,
 ];
