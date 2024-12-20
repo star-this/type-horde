@@ -8,6 +8,8 @@ export {
   ExpectToBeFalse,
   ExpectToBeTrue,
 } from "./sanity/expect.js";
+export { Test } from "./sanity/test.js";
+export { Suite } from "./sanity/suite.js";
 export { f } from "./sanity/false.js";
 export { t } from "./sanity/true.js";
 // logic
