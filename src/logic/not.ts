@@ -4,5 +4,7 @@
 export type Not<P> = P extends boolean
   ? P extends true
     ? false
-    : true
+    : P extends false
+    ? true
+    : never
   : never;

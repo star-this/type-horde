@@ -5,6 +5,10 @@
  * * as a shorthad for true
  * @example True is true
  */
-export type True<TruthStatement = true> = TruthStatement extends true
-  ? true
-  : false;
+export type True<TruthStatement = true> = TruthStatement extends boolean
+  ? TruthStatement extends true
+    ? true
+    : TruthStatement extends false
+    ? false
+    : never
+  : true;
