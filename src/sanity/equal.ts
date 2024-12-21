@@ -6,12 +6,12 @@ export type Equals<A, B> = Equal<A, B>;
 
 /**
  * ? Expect types X and Y to be equal.
- * ! Equal<X, A & B> does not work if, e.g.,
- * ! X equals Y, but Y is A & B,
+ * ! Equal<A, X & Y> does not work if, e.g.,
+ * ! A union (B), but (B) union (X & Y),
  * * @example Equals<true, t>
  */
-export type Equal<X, Y> = (<T>() => T extends X ? 1 : 0) extends <
+export type Equal<A, B> = (<T>() => T extends A ? 1 : 2) extends <
   T,
->() => T extends Y ? 1 : 0
+>() => T extends B ? 1 : 2
   ? true
   : false;
