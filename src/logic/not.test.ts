@@ -1,12 +1,12 @@
 import { expect, suite, test } from "vitest";
 import { Suite } from "../sanity/suite";
 import { Test } from "../sanity/test";
-import { t } from "../sanity/true";
-import { Not } from "./not";
+import { $t } from "../sanity/verity";
+import { ExpectTo } from "../sanity/expect";
+import { Equal } from "./equal";
 import { True } from "./true";
 import { False } from "./false";
-import { ExpectTo } from "../sanity/expect";
-import { Equal } from "../sanity/equal";
+import { Not } from "./not";
 
 suite("Not", () => {
   type NotPasses = Suite<
@@ -16,12 +16,12 @@ suite("Not", () => {
       Test<"Not<false> -> true", [ExpectTo<Equal<true, Not<false>>>]>,
     ]
   >;
-  test("~T the ~F", () => {
+  test("~T then ~F", () => {
     const not: NotPasses = [
       "Not",
       [
-        ["Not<true> -> false", [t]],
-        ["Not<false> -> true", [t]],
+        ["Not<true> -> false", [$t]],
+        ["Not<false> -> true", [$t]],
       ],
     ];
     expect(not).toBeTruthy();
@@ -40,8 +40,8 @@ suite("Not<P>", () => {
     const not: Not_P_Passes = [
       "Not<P>",
       [
-        ["Not<True> -> false", [t]],
-        ["Not<False> -> true", [t]],
+        ["Not<True> -> false", [$t]],
+        ["Not<False> -> true", [$t]],
       ],
     ];
     expect(not).toBeTruthy();
@@ -63,8 +63,8 @@ suite("Not<Not<P>>", () => {
     const notnot: Not_Not_P_Passes = [
       "Not<Not<P>>",
       [
-        ["Not<Not<True>> -> true", [t]],
-        ["Not<Not<False>> -> false", [t]],
+        ["Not<Not<True>> -> true", [$t]],
+        ["Not<Not<False>> -> false", [$t]],
       ],
     ];
     expect(notnot).toBeTruthy();

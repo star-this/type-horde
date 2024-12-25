@@ -1,9 +1,9 @@
 import { expect, suite, test } from "vitest";
-import { ExpectTo } from "../sanity/expect";
-import { Equal } from "../sanity/equal";
 import { Suite } from "../sanity/suite";
 import { Test } from "../sanity/test";
-import { t } from "../sanity/true";
+import { $t } from "../sanity/verity";
+import { ExpectTo } from "../sanity/expect";
+import { Equal } from "./equal";
 import { Nor } from "./nor";
 
 suite("Nor<A, B>", () => {
@@ -20,10 +20,10 @@ suite("Nor<A, B>", () => {
     const nor: NorPasses = [
       "Nor<A, B>",
       [
-        ["Nor<T,T>", [t]],
-        ["Nor<T,F>", [t]],
-        ["Nor<F,T>", [t]],
-        ["Nor<F,F>", [t]],
+        ["Nor<T,T>", [$t]],
+        ["Nor<T,F>", [$t]],
+        ["Nor<F,T>", [$t]],
+        ["Nor<F,F>", [$t]],
       ],
     ];
     expect(nor).toBeTruthy();

@@ -1,9 +1,9 @@
 import { expect, suite, test } from "vitest";
 import { ExpectTo } from "../sanity/expect";
-import { Equal } from "../sanity/equal";
+import { Equal } from "./equal";
 import { Suite } from "../sanity/suite";
 import { Test } from "../sanity/test";
-import { t } from "../sanity/true";
+import { $t } from "../sanity/verity";
 import { Xor } from "./xor";
 
 suite("Xor<A, B>", () => {
@@ -20,10 +20,10 @@ suite("Xor<A, B>", () => {
     const xor: XorPasses = [
       "Nor<A, B>",
       [
-        ["Xor<T,T>", [t]],
-        ["Xor<T,F>", [t]],
-        ["Xor<F,T>", [t]],
-        ["Xor<F,F>", [t]],
+        ["Xor<T,T>", [$t]],
+        ["Xor<T,F>", [$t]],
+        ["Xor<F,T>", [$t]],
+        ["Xor<F,F>", [$t]],
       ],
     ];
     expect(xor).toBeTruthy();

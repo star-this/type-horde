@@ -1,9 +1,9 @@
 import { expect, suite, test } from "vitest";
 import { ExpectTo } from "../sanity/expect";
-import { Equal } from "../sanity/equal";
+import { Equal } from "./equal";
 import { Suite } from "../sanity/suite";
 import { Test } from "../sanity/test";
-import { t } from "../sanity/true";
+import { $t } from "../sanity/verity";
 import { And } from "./and";
 
 suite("And<A, B>", () => {
@@ -20,10 +20,10 @@ suite("And<A, B>", () => {
     const and: AndPasses = [
       "And<A,B>",
       [
-        ["And<T,T>", [t]],
-        ["And<T,F>", [t]],
-        ["And<F,T>", [t]],
-        ["And<F,F>", [t]],
+        ["And<T,T>", [$t]],
+        ["And<T,F>", [$t]],
+        ["And<F,T>", [$t]],
+        ["And<F,F>", [$t]],
       ],
     ];
     expect(and).toBeTruthy();

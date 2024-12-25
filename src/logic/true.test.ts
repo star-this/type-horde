@@ -1,11 +1,11 @@
 import { expect, suite, test } from "vitest";
 import { Suite } from "../sanity/suite";
 import { Test } from "../sanity/test";
-import { t } from "../sanity/true";
-import { True } from "./true";
+import { $t } from "../sanity/verity";
 import { ExpectTo } from "../sanity/expect";
-import { Equal } from "../sanity/equal";
+import { Equal } from "./equal";
 import { Not } from "./not";
+import { True } from "./true";
 import { False } from "./false";
 
 suite("True", () => {
@@ -20,8 +20,8 @@ suite("True", () => {
     const tru: TruePasses = [
       "True",
       [
-        ["True = true", [t]],
-        ["True = Not<false>", [t]],
+        ["True = true", [$t]],
+        ["True = Not<false>", [$t]],
       ],
     ];
     expect(tru).toBeTruthy();
@@ -110,26 +110,26 @@ suite("Truth Table with True<T>, False<F>, & Not<P>", () => {
     const table: Truth_Table_Passes = [
       "True_T__Truth_Table",
       [
-        ["True<True> -> True", [t]],
-        ["True<False> -> False", [t]],
-        ["False<True> -> False", [t]],
-        ["False<False> -> True", [t]],
-        ["True<Not<True>> -> False", [t]],
-        ["True<Not<False>> -> True", [t]],
-        ["False<Not<True>> -> True", [t]],
-        ["False<Not<False>> -> False", [t]],
-        ["Not<True<True>> -> False", [t]],
-        ["Not<True<False>> -> True", [t]],
-        ["Not<False<True>> -> True", [t]],
-        ["Not<False<False>> -> False", [t]],
-        ["Not<True<Not<True>>> -> True", [t]],
-        ["Not<True<Not<False>>> -> False", [t]],
-        ["Not<False<Not<True>>> -> False", [t]],
-        ["Not<False<Not<False>>> -> True", [t]],
-        ["True<Not<Not<True>>> -> True", [t]],
-        ["True<Not<Not<False>>> -> False", [t]],
-        ["False<Not<Not<True>>> -> False", [t]],
-        ["False<Not<Not<False>>> -> True", [t]],
+        ["True<True> -> True", [$t]],
+        ["True<False> -> False", [$t]],
+        ["False<True> -> False", [$t]],
+        ["False<False> -> True", [$t]],
+        ["True<Not<True>> -> False", [$t]],
+        ["True<Not<False>> -> True", [$t]],
+        ["False<Not<True>> -> True", [$t]],
+        ["False<Not<False>> -> False", [$t]],
+        ["Not<True<True>> -> False", [$t]],
+        ["Not<True<False>> -> True", [$t]],
+        ["Not<False<True>> -> True", [$t]],
+        ["Not<False<False>> -> False", [$t]],
+        ["Not<True<Not<True>>> -> True", [$t]],
+        ["Not<True<Not<False>>> -> False", [$t]],
+        ["Not<False<Not<True>>> -> False", [$t]],
+        ["Not<False<Not<False>>> -> True", [$t]],
+        ["True<Not<Not<True>>> -> True", [$t]],
+        ["True<Not<Not<False>>> -> False", [$t]],
+        ["False<Not<Not<True>>> -> False", [$t]],
+        ["False<Not<Not<False>>> -> True", [$t]],
       ],
     ];
     expect(table).toBeTruthy();

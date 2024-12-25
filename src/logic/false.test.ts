@@ -1,12 +1,12 @@
 import { expect, suite, test } from "vitest";
 import { Suite } from "../sanity/suite";
 import { Test } from "../sanity/test";
-import { t } from "../sanity/true";
-import { False } from "./false";
-import { Equal } from "../sanity/equal";
+import { $t } from "../sanity/verity";
 import { ExpectTo } from "../sanity/expect";
+import { Equal } from "./equal";
 import { Not } from "./not";
 import { True } from "./true";
+import { False } from "./false";
 
 suite("False", () => {
   type FalsePasses = Suite<
@@ -20,8 +20,8 @@ suite("False", () => {
     const faux: FalsePasses = [
       "False",
       [
-        ["False -> false", [t]],
-        ["Not<False>> -> true", [t]],
+        ["False -> false", [$t]],
+        ["Not<False>> -> true", [$t]],
       ],
     ];
     expect(faux).toBeTruthy();
@@ -72,16 +72,16 @@ suite("False<P>", () => {
     const faux: FalsePasses = [
       "False<P>",
       [
-        ["False<true> -> false", [t]],
-        ["Not<False<true>>> -> true", [t]],
-        ["False<True> -> false", [t]],
-        ["Not<False<True>> -> true", [t]],
-        ["False<True<True>> -> false", [t]],
-        ["Not<False<True<True>>> -> true", [t]],
-        ["False<True<False>> -> true", [t]],
-        ["Not<False<True<False>>> -> false", [t]],
-        ["True<False<True>> -> false", [t]],
-        ["Not<True<False<True>>> -> true", [t]],
+        ["False<true> -> false", [$t]],
+        ["Not<False<true>>> -> true", [$t]],
+        ["False<True> -> false", [$t]],
+        ["Not<False<True>> -> true", [$t]],
+        ["False<True<True>> -> false", [$t]],
+        ["Not<False<True<True>>> -> true", [$t]],
+        ["False<True<False>> -> true", [$t]],
+        ["Not<False<True<False>>> -> false", [$t]],
+        ["True<False<True>> -> false", [$t]],
+        ["Not<True<False<True>>> -> true", [$t]],
       ],
     ];
     expect(faux).toBeTruthy();
