@@ -1,7 +1,7 @@
 import { expect, suite, test } from "vitest";
 
-suite("Vitest", () => {
-  test("Sanity", () => {
+suite("Test runner works", () => {
+  test("Sanity check", () => {
     expect(true).toBe(true);
   });
 });
