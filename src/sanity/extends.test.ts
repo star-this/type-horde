@@ -1,8 +1,8 @@
 import { expect, suite, test } from "vitest";
 import { Suite } from "./suite";
 import { Test } from "./test";
-import { t } from "./true";
-import { f } from "./false";
+import { $t } from "./verity";
+import { $f } from "./verity";
 import { Extend, Extends } from "./extends";
 
 suite("Extend", () => {
@@ -17,8 +17,8 @@ suite("Extend", () => {
     const extend: ExtendPasses = [
       "Extend",
       [
-        ["Yes: Extend<boolean, true>", [t]],
-        ["No: Extend<true, boolean>", [f]],
+        ["Yes: Extend<boolean, true>", [$t]],
+        ["No: Extend<true, boolean>", [$f]],
       ],
     ];
     expect(extend).toBeTruthy();
@@ -37,8 +37,8 @@ suite("Extends", () => {
     const _extends_: ExtendsPasses = [
       "Extends",
       [
-        ["Yes: Extends<boolean, true>", [t]],
-        ["No: Extends<true, boolean>", [f]],
+        ["Yes: Extends<boolean, true>", [$t]],
+        ["No: Extends<true, boolean>", [$f]],
       ],
     ];
     expect(_extends_).toBeTruthy();
